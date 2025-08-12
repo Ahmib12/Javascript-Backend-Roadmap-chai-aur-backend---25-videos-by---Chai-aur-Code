@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "a basic app to deploy - learn backend wiht js",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./31FullStackFEAndBE/Backend/server.js"
   },
   "keywords": [
     "node",
