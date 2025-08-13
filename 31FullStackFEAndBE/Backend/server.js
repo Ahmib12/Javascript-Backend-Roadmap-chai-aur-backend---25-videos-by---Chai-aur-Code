@@ -10,9 +10,11 @@ const app = express();
 app.use(cors());
 
 // 3 -  app work is to navigate to some route
-app.get('/',(req,res)=>{
-    res.send('server is ready')
-})
+// app.get('/',(req,res)=>{
+//     res.send('server is ready')
+// })
+app.use(express.static('dist')); 
+
 
 // get a list of 5 jokes
 // app.get('/jokes',(req,res)=>{ // we dont directly wrote /jokes -- we need to use /api/v1/jokes or api/jokes 
