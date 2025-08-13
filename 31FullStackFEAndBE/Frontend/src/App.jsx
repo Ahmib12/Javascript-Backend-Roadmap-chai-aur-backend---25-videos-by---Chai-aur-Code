@@ -6,7 +6,12 @@ function App() {
   const [jokes,setJokes] = useState([]);
 
   useEffect(() =>{
-    axios.get("http://localhost:5000/jokes")
+
+    // axios.get("http://localhost:5000/jokes")
+    // axios.get("http://localhost:5000/api/jokes") 
+    axios.get("http://localhost:5000/api/jokes") 
+    
+
     .then((response) => {
       setJokes(response.data)
     })
@@ -20,12 +25,12 @@ function App() {
       <h1>Syeda's world</h1>
       <p>JOKES : {jokes.length}</p>
       {
-        jokes.map((joke,index)=>{
+        jokes.map((joke,index)=>(
           <div key={joke.id}>
             <h3> TITLE :- {joke.title}</h3>  
             <h3> Content:- {joke.content}</h3>  
           </div>
-        })
+        ))
       }
     </>
   )

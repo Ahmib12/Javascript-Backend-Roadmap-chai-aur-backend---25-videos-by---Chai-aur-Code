@@ -3,9 +3,11 @@
 // 1 - import express
 // const express = require('express') // - this  is the old code -- these days we use import
 import express from "express" 
+import cors from 'cors';
 
 // 2 - create app
 const app = express();
+app.use(cors());
 
 // 3 -  app work is to navigate to some route
 app.get('/',(req,res)=>{
