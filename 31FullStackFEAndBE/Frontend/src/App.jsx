@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <h1>Syeda's world</h1>
+      <h1>Syeda's world  | explorer | developer | globe trotter</h1>
       <p>JOKES : {jokes.length}</p>
       {
         jokes.map((joke,index)=>(
