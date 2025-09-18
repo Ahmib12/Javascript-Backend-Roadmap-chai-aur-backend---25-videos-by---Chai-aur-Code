@@ -1,0 +1,46 @@
+import mongoose, {Schema} from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
+
+const videoSchema = new Schema(
+    {
+        videoFile: {
+            type: String, // cloudnari url
+            required: true,
+        },
+        thumbnail: {
+            type: String, // cloudnari url
+            required: true,
+        },
+        title: {
+            type: String, 
+            required: true,
+        },
+        description: {
+            type: String, 
+            required: true,
+        },
+        duration: {
+            type: Number , // cloudnari url, this is very inportant, its not given by user, we get it in number format
+            required: true,
+        },
+        views: {
+            type: Number,
+            default: 0,
+        },
+        isPublished: {
+            type: Boolean,
+            default: false,
+        }, 
+        owner: {
+            type: mongoose.Schema.Types.objectId,
+            ref: "User",
+        },
+    },
+    {
+        timestamps: true,
+    }
+)
+
+videoSchema.plugin(mongooseAggregatePaginate);
+
+export const Video = mongoose.model("Video",videoSchema)
