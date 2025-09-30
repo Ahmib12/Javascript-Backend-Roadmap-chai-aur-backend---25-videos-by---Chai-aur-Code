@@ -7,3 +7,5 @@ class ApiResponse {
         this.errors = error;
     }
 }
+
+export {ApiResponse};
