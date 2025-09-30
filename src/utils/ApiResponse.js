@@ -3,8 +3,9 @@ class ApiResponse {
         this.statusCode = statusCode;
         this.data = data;
         this.message = message;
-        this.success = statusCode < 400;//  its not neccessary to add it, but based on server status code --> its good to get<400 for success; 
-        this.errors = error;
+        this.success = statusCode < 400;//  its not neccessary to add it, but based on server status code --> its good to get<400 for success;
+        // this.errors = error;; // this line was caudsing erroso i had to write the belwo cline
+        this.errors = [];
     }
 }
 

@@ -43,7 +43,7 @@ const userSChema = new Schema(
             required: [true,"Password is required"], // for every field that is tru,u can give a custom message
           },
           refreshToken: {
-            typeL: String,
+            type: String,
           }
     },
     {

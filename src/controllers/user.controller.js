@@ -1,6 +1,6 @@
 // import asyncHandler from "../utils/asyncHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import ApiErrors from "../utils/ApiErrors.js";
+import { ApiErrors } from "../utils/ApiErrors.js";
 import { User } from "../models/user.model.js";
 import { uploadToCloudinary } from "../utils/cloudinary.js"; 
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -39,7 +39,8 @@ const registerUser = asyncHandler(async (req, res) => {
           }
 
   // ***** check if user already exists : username, email
-         const existedUser =  User.find({
+        //  const existedUser = await User.find({
+         const existedUser = await User.findOne({
             $or: [{ username }, { email }]
           })
 
@@ -60,17 +61,17 @@ const registerUser = asyncHandler(async (req, res) => {
           
           // again check if avatar was uploaded or not - as its the required field
           if(!avatar){
-            throw new ApiErrors(400, "Avatar field is required");
+            throw new ApiErrors(400, "Avatar field is required.,.,.,");
           }
 
     // ****create user object - create entry in db
-          const user = awaitUser.create({
+          const user = await User.create({
             fullName,
             avatar: avatar.url,
             coverImage: coverImage?.url || "",
             email,
             password,
-            username: username.tolowerCase(),
+            username: username.toLowerCase(),
           })
           
     // ***** remove password and refresh token field from response
