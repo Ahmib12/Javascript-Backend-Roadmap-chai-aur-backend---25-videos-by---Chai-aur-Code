@@ -59,11 +59,11 @@ userSChema.pre("save",async function(next) {
 })
 
 userSChema.methods.isPasswordCorrect = async function (password) {
-  await bcrypt.compare(password,this.password);
+  return await bcrypt.compare(password, this.password);
 }
 
 userSChema.methods.generateAccessToken = function() {
-  jwt.sign(
+  return jwt.sign(
     {
       _id: this._id,
       email: this.email,
@@ -77,7 +77,7 @@ userSChema.methods.generateAccessToken = function() {
   );
 }
 userSChema.methods.generateRefreshToken = function() {
-  jwt.sign(
+  return jwt.sign(
     {
       _id: this._id,
     },
